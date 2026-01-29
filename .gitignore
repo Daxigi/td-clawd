@@ -1,0 +1,41 @@
+# ============================================
+# CLAWDBOT - Archivos a ignorar
+# ============================================
+
+# Variables de entorno (CRÍTICO - contiene API keys)
+.env
+.env.local
+.env.*.local
+
+# Configuración con credenciales
+config/credentials/
+config/*.secret.json
+
+# Logs
+config/logs/
+*.log
+
+# Sesiones de WhatsApp/Telegram
+config/sessions/
+config/auth/
+
+# Memoria y datos de usuario
+workspace/memory/
+workspace/.cache/
+
+# Node modules (si se instala localmente)
+node_modules/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Backups temporales
+*.bak
+*.tmp
+*.swp
+
+# IDE
+.idea/
+.vscode/
+*.sublime-*

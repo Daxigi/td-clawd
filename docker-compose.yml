@@ -1,0 +1,38 @@
+services:
+  clawdbot:
+    build: .
+    container_name: clawdbot-gateway
+    restart: unless-stopped
+    user: "root"
+    
+    ports:
+      - "18789:18789"
+    
+    volumes:
+      - ./config:/home/node/.clawdbot:rw
+      - ./workspace:/home/node/clawd:rw
+    
+    environment:
+      - HOME=/home/node 
+      - NODE_ENV=production
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - CLAWDBOT_GATEWAY_TOKEN=${CLAWDBOT_GATEWAY_TOKEN}
+      - CLAWDBOT_GATEWAY_AUTH_ALLOWED_USERS=["*"]
+      - CLAWDBOT_AGENTS_DEFAULTS_ALLOWED_USERS=["*"]
+      - CLAWDBOT_GATEWAY_AUTH_METHOD=token
+      - CLAWDBOT_GATEWAY_CONTROL_UI_ALLOW_INSECURE_AUTH=true
+      - CLAWDBOT_CHANNELS_TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}    
+      - CLAWDBOT_GATEWAY_RELOAD_ON_CONFIG_CHANGE=false
+
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+          cpus: '2'
+    
+    networks:
+      - clawdbot-network
+
+networks:
+  clawdbot-network:
+    driver: bridge
