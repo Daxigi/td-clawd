@@ -1,6 +1,6 @@
 {
   "agent:main:main": {
-    "updatedAt": 1769779001007,
+    "updatedAt": 1769784375756,
     "deliveryContext": {
       "channel": "telegram",
       "to": "telegram:7864432456",
@@ -102,15 +102,15 @@
       ],
       "version": 0
     },
-    "inputTokens": 831,
-    "outputTokens": 126,
-    "totalTokens": 16959,
+    "inputTokens": 206,
+    "outputTokens": 57,
+    "totalTokens": 23886,
     "modelProvider": "openai",
     "model": "gpt-4o",
     "contextTokens": 128000,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1769778994208,
+      "generatedAt": 1769784370822,
       "sessionId": "d0eeee6e-e8b3-4c67-b221-61316ec175f7",
       "sessionKey": "agent:main:main",
       "provider": "openai",
@@ -122,8 +122,8 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 20188,
-        "projectContextChars": 10389,
+        "chars": 21521,
+        "projectContextChars": 11722,
         "nonProjectContextChars": 9799
       },
       "injectedWorkspaceFiles": [
@@ -139,8 +139,8 @@
           "name": "SOUL.md",
           "path": "/home/node/clawd/SOUL.md",
           "missing": false,
-          "rawChars": 2970,
-          "injectedChars": 2970,
+          "rawChars": 4303,
+          "injectedChars": 4303,
           "truncated": false
         },
         {

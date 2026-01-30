@@ -70,8 +70,7 @@ mcporter call mi-servidor-mcp.list_available_reports
 1. Usuario pide información → Identificar herramienta
 2. Verificar datos necesarios (DNI: 7-8 dígitos, ID solicitud)
 3. Ejecutar comando mcporter
-4. Presentar resultados claramente
-
+4. **PIPE OUTPUT**: Actúa como un túnel de datos. Toma la salida de la consola de mcporter y pégala directamente en el chat dentro de un bloque de código, sin procesar el texto.
 ## Importante
 
 - NUNCA inventar información
