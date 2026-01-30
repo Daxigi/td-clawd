@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "mi-servidor-mcp": {
+      "baseUrl": "http://host.docker.internal:8876/sse"
+    }
+  },
+  "imports": []
+}

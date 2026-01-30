@@ -1,0 +1,49 @@
+services:
+  clawdbot:
+    build: .
+    container_name: clawdbot-gateway
+    restart: unless-stopped
+    # SEGURIDAD: Sin "user: root"
+    
+    ports:
+      - "127.0.0.1:18789:18789"  # Solo accesible desde localhost
+    
+    volumes:
+      - ./config:/home/node/.clawdbot:rw
+      - ./mcporter.json:/home/node/config/mcporter.json:rw
+      - ./mcporter.json:/home/node/.mcporter/mcporter.json:rw  # System config
+      - ./workspace:/home/node/clawd:rw
+    
+    environment:
+      - HOME=/home/node 
+      - NODE_ENV=production
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - CLAWDBOT_GATEWAY_TOKEN=${CLAWDBOT_GATEWAY_TOKEN}
+      - CLAWDBOT_GATEWAY_AUTH_METHOD=token
+      # SEGURIDAD: Cambiar a false en producción cuando tengas HTTPS
+      - CLAWDBOT_GATEWAY_CONTROL_UI_ALLOW_INSECURE_AUTH=${ALLOW_INSECURE_AUTH:-true}
+      # Token de Telegram solo via variable de entorno
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - CLAWDBOT_GATEWAY_RELOAD_ON_CONFIG_CHANGE=false
+      # PAIRING: El sistema de aprobación manual maneja los usuarios permitidos
+      # No se definen ALLOWED_USERS - se gestiona con: clawdbot pairing approve/reject
+
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+          cpus: '2'
+    
+    networks:
+      - shared-network
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:18789/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  shared-network:
+    external: true

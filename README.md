@@ -127,3 +127,15 @@ docker exec -it clawdbot-gateway clawdbot pairing reject telegram <código>
 
 - Ver usuarios aprobados
 docker exec -it clawdbot-gateway clawdbot pairing status telegram
+
+
+## Comando de MCP
+
+- agregar servidor mcp 
+docker exec -it clawdbot-gateway mcporter config add mi-servidor-mcp http://host.docker.internal:8876/sse
+
+- ver la configuracion de mcporter
+docker exec -it clawdbot-gateway mcporter list
+
+- ejecutar una tool 
+docker exec -it clawdbot-gateway mcporter call mi-servidor-mcp.reporte_solicitudes_hoy

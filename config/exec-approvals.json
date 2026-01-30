@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "socket": {
+    "path": "/home/node/.clawdbot/exec-approvals.sock",
+    "token": "S7RsXN8xyDERe4RELOvO1x5tALw3IF8O"
+  },
+  "defaults": {},
+  "agents": {}
+}
